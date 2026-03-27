@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ESQ Energia — Kit para Google Antigravity
 
-## Getting Started
+Kit completo de **Skill**, **Rules**, **Workflows** e **Prompts Faseados** para construir a landing page da ESQ Energia no Google Antigravity.
 
-First, run the development server:
+## Instalação Rápida
 
+### 1. Crie o workspace do projeto
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+mkdir esq-energia && cd esq-energia
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Copie a pasta `.agents/` para a raiz do workspace
+```bash
+cp -r /caminho/para/este-kit/.agents/ .
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+A estrutura deve ficar assim:
+```
+esq-energia/
+├── .agents/
+│   ├── skills/
+│   │   └── esq-energia-brand/
+│   │       ├── SKILL.md              ← Metadata + instruções da skill
+│   │       └── resources/
+│   │           └── DESIGN_TOKENS.md  ← Tokens completos (cores, tipografia, efeitos)
+│   ├── rules/
+│   │   ├── code-conventions.md       ← TypeScript, React, acessibilidade
+│   │   └── project-structure.md      ← Organização de pastas e nomeação
+│   └── workflows/
+│       ├── create-section.md         ← Workflow: criar nova seção
+│       ├── create-ui-component.md    ← Workflow: criar componente UI
+│       └── visual-qa.md             ← Workflow: checklist de QA visual
+└── PROMPTS_GUIDE.md                  ← 12 prompts faseados para o Agent Manager
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Abra no Antigravity
+```bash
+agy .
+```
 
-## Learn More
+### 4. Configure o agente
+- **Modo**: Planning (para a maioria dos prompts)
+- **Modelo**: Gemini 3 Pro
+- **Terminal Policy**: Review-driven development (recomendado)
 
-To learn more about Next.js, take a look at the following resources:
+### 5. Execute os prompts
+Abra `PROMPTS_GUIDE.md` e siga os prompts na ordem (0 → 11).
+Cada prompt é uma task independente no Agent Manager.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## O que cada arquivo faz
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Arquivo | Tipo | Função |
+|---------|------|--------|
+| `skills/esq-energia-brand/SKILL.md` | Skill | Carregada automaticamente quando o agente trabalha em CSS, componentes ou UI |
+| `skills/.../DESIGN_TOKENS.md` | Resource | Referência completa de cores, tipografia, efeitos, animações e estrutura |
+| `rules/code-conventions.md` | Rule | Sempre ativa — garante TypeScript strict, pt-BR na UI, acessibilidade |
+| `rules/project-structure.md` | Rule | Sempre ativa — garante organização de pastas e nomeação correta |
+| `workflows/create-section.md` | Workflow | Acione com `/create-section` antes de criar uma seção |
+| `workflows/create-ui-component.md` | Workflow | Acione com `/create-ui-component` antes de criar um componente |
+| `workflows/visual-qa.md` | Workflow | Acione com `/visual-qa` após completar cada prompt |
 
-## Deploy on Vercel
+## Notas Importantes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Idioma**: UI em pt-BR, código em inglês. As rules garantem isso automaticamente.
+- **Skills são lazy-loaded**: O agente só carrega a skill quando a tarefa é relevante. Usar `@esq-energia-brand` no prompt força o carregamento.
+- **Rules são sempre ativas**: Aplicadas a toda geração de código no workspace.
+- **Workflows são on-demand**: Acionados com `/nome-do-workflow` no chat.
+- **Faça commits entre prompts**: `git add -A && git commit -m "prompt-X: descrição"`
