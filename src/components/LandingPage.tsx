@@ -27,16 +27,17 @@ export default function LandingPage() {
       {/* Hero is eagerly loaded — above the fold */}
       <Hero onOpenLeadForm={openModal} />
 
+      {/* Simulator right after hero — highest-intent lead magnet */}
+      <Suspense fallback={<SectionSkeleton />}>
+        <SavingsSimulator onOpenLeadForm={openModal} />
+      </Suspense>
+
       <Suspense fallback={<SectionSkeleton />}>
         <Benefits onOpenLeadForm={openModal} />
       </Suspense>
 
       <Suspense fallback={<SectionSkeleton />}>
         <AppShowcase />
-      </Suspense>
-
-      <Suspense fallback={<SectionSkeleton />}>
-        <SavingsSimulator onOpenLeadForm={openModal} />
       </Suspense>
 
       <Suspense fallback={<SectionSkeleton />}>

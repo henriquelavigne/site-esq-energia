@@ -30,7 +30,7 @@ export default function Sustainability() {
               Transforme energia solar em diferencial para o seu negócio
             </SectionHeading>
             
-            <p className="text-[var(--color-text-muted)] text-lg mb-10 leading-relaxed">
+            <p className="text-zinc-600 text-lg mb-10 leading-relaxed">
               Além de economizar, sua empresa se torna parceira do planeta. 
               <span className="block mt-2 font-bold text-zinc-900 italic">
                 "88% dos consumidores preferem empresas que apoiam o meio ambiente"
@@ -71,7 +71,7 @@ export default function Sustainability() {
               <div className="w-full h-full rounded-full border-4 border-dashed border-[var(--color-accent-green)]/30 flex items-center justify-center p-8 animate-[spin_20s_linear_infinite]">
                  <div className="absolute inset-0 rounded-full border-2 border-[var(--color-accent-green)]/10 flex items-center justify-center flex-col text-center">
                     <span className="text-[var(--color-accent-teal)] font-black text-4xl uppercase tracking-tighter">100%</span>
-                    <span className="text-[var(--color-text-muted)] font-bold text-xs uppercase tracking-widest">Energia Limpa</span>
+                    <span className="text-zinc-500 font-bold text-xs uppercase tracking-widest">Energia Limpa</span>
                  </div>
               </div>
               

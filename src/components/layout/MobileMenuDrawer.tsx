@@ -65,12 +65,7 @@ export default function MobileMenuDrawer({
                   ))}
                 </nav>
 
-                <div className="flex flex-col gap-4 mt-10">
-                  <Dialog.Close asChild>
-                    <Button variant="outline-blue" className="w-full">
-                      Já sou cliente
-                    </Button>
-                  </Dialog.Close>
+                <div className="mt-10">
                   <Dialog.Close asChild>
                     <Button
                       variant="primary"
@@ -80,7 +75,7 @@ export default function MobileMenuDrawer({
                         openModal();
                       }}
                     >
-                      Cadastre-se
+                      Comece a economizar
                     </Button>
                   </Dialog.Close>
                 </div>

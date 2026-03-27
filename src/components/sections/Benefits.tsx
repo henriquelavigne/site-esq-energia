@@ -42,7 +42,7 @@ export default function Benefits({ onOpenLeadForm }: BenefitsProps) {
           <SectionHeading as="h2" gradient={false} className="text-black mb-6">
             Por que escolher a ESQ Energia?
           </SectionHeading>
-          <p className="text-[var(--color-text-muted)] text-lg">
+          <p className="text-zinc-600 text-lg">
             Economia inteligente, energia limpa e total comodidade para o seu bolso.
           </p>
         </div>

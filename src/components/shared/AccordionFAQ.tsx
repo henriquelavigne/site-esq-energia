@@ -52,7 +52,7 @@ export default function AccordionFAQ({ items, className }: AccordionFAQProps) {
 
           <AccordionPrimitive.Content
             className={cn(
-              "overflow-hidden text-[var(--color-text-muted)]",
+              "overflow-hidden",
               "data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up"
             )}
             style={
