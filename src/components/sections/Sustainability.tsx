@@ -70,7 +70,7 @@ export default function Sustainability() {
               {/* Spinning circular text would go here, using a simpler DIV sticker for now */}
               <div className="w-full h-full rounded-full border-4 border-dashed border-[var(--color-accent-green)]/30 flex items-center justify-center p-8 animate-[spin_20s_linear_infinite]">
                  <div className="absolute inset-0 rounded-full border-2 border-[var(--color-accent-green)]/10 flex items-center justify-center flex-col text-center">
-                    <span className="text-[var(--color-accent-teal)] font-black text-4xl uppercase tracking-tighter">100%</span>
+                    <span className="text-[var(--color-accent-green)] font-black text-4xl uppercase tracking-tighter">100%</span>
                     <span className="text-zinc-500 font-bold text-xs uppercase tracking-widest">Energia Limpa</span>
                  </div>
               </div>

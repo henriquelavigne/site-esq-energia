@@ -59,7 +59,7 @@ export default function Hero({ onOpenLeadForm }: HeroProps) {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.45 }}
-            className="mt-14 flex flex-wrap justify-center items-center gap-6 text-[var(--color-text-muted)] text-sm"
+            className="mt-14 flex flex-wrap justify-center items-center gap-6 text-[var(--color-text-secondary)] text-sm"
           >
             {[
               "Zero investimento",

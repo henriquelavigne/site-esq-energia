@@ -57,7 +57,7 @@ export default function SavingsSimulator({ onOpenLeadForm }: SavingsSimulatorPro
           >
             <span className="text-xl">💰</span>
             <p className="text-sm font-bold">
-              <span className="text-[var(--color-accent-teal)]">R$ 80.000 economizados:</span> marco de um cliente desde 2021
+              <span className="text-[var(--color-accent-green)]">R$ 80.000 economizados:</span> marco de um cliente desde 2021
             </p>
           </motion.div>
         </div>
@@ -75,7 +75,7 @@ export default function SavingsSimulator({ onOpenLeadForm }: SavingsSimulatorPro
                     </label>
                     <p className="text-xs text-zinc-500">Quanto você paga hoje sem a ESQ?</p>
                   </div>
-                  <span className="text-3xl font-bold text-[var(--color-accent-teal)]">
+                  <span className="text-3xl font-bold text-[var(--color-accent-green)]">
                     {formatCurrency(billValue)}
                   </span>
                 </div>

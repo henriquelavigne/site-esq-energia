@@ -57,14 +57,14 @@ export default function Benefits({ onOpenLeadForm }: BenefitsProps) {
               transition={{ delay: index * 0.1 }}
               className="bg-white p-8 rounded-[20px] shadow-sm hover:shadow-xl transition-all border border-zinc-100 flex flex-col items-start group"
             >
-              <div className="mb-6 p-4 bg-zinc-50 rounded-2xl group-hover:bg-white transition-colors duration-300">
+              <div className="mb-6 p-4 bg-[var(--color-accent-green)]/8 rounded-2xl group-hover:bg-[var(--color-accent-green)]/15 transition-colors duration-300">
                 {benefit.icon}
               </div>
               <h3 className="text-xl font-bold text-zinc-900 mb-4">{benefit.title}</h3>
               <p className="text-zinc-600 mb-6 leading-relaxed">
                 {benefit.content}
               </p>
-              <Badge variant="pill" className="bg-zinc-100 text-zinc-600 border-none px-3">
+              <Badge variant="pill" className="bg-[var(--color-accent-green)]/10 text-[var(--color-bg-deep)] border-none px-3 mt-auto">
                 {benefit.badge}
               </Badge>
             </motion.div>

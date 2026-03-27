@@ -1,7 +1,9 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import SectionLabel from "@/components/shared/SectionLabel";
 import SectionHeading from "@/components/shared/SectionHeading";
 import AccordionFAQ, { type FAQItem } from "@/components/shared/AccordionFAQ";
 import { FAQ as FAQ_DATA } from "@/lib/constants";
@@ -31,7 +33,14 @@ export default function FAQ({ onOpenLeadForm }: FAQProps) {
   return (
     <section id="faq" className="py-24 bg-[var(--color-bg-light)]">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="text-center mb-14">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-14"
+        >
+          <SectionLabel className="justify-center mb-4">Dúvidas</SectionLabel>
           <SectionHeading
             as="h2"
             gradient={false}
@@ -39,18 +48,18 @@ export default function FAQ({ onOpenLeadForm }: FAQProps) {
           >
             Perguntas Frequentes
           </SectionHeading>
-        </div>
+        </motion.div>
 
         <div className="max-w-3xl mx-auto">
           <AccordionFAQ items={items} />
 
           <div className="mt-10 text-center">
-            <a
-              href="#"
+            <button
+              onClick={onOpenLeadForm}
               className="text-sm font-medium text-[var(--color-accent-blue)] hover:underline transition-all"
             >
-              Mais dúvidas? Visite nosso Centro de Ajuda →
-            </a>
+              Mais dúvidas? Fale com nossa equipe →
+            </button>
           </div>
         </div>
       </div>
