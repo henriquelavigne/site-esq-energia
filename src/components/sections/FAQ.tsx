@@ -1,65 +1,62 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import SectionLabel from "@/components/shared/SectionLabel";
 import SectionHeading from "@/components/shared/SectionHeading";
-import AccordionFAQ, { type FAQItem } from "@/components/shared/AccordionFAQ";
-import { FAQ as FAQ_DATA } from "@/lib/constants";
+import AccordionFAQ, { FAQItem } from "@/components/shared/AccordionFAQ";
+
+const FAQ_ITEMS: FAQItem[] = [
+  {
+    question: "Como recebo o desconto na minha conta de luz?",
+    answer: "A ESQ Energia aloca créditos de energia solar gerados em nossas fazendas parceiras diretamente na sua conta de luz através da sua distribuidora local. Esses créditos compensam o seu consumo, gerando economia real todo mês.",
+  },
+  {
+    question: "Preciso instalar painéis solares na minha empresa?",
+    answer: "Não! Essa é a grande vantagem da ESQ. Você recebe todos os benefícios da energia solar de forma digital, sem necessidade de obras, investimentos em equipamentos ou manutenção.",
+  },
+  {
+    question: "Existe algum custo de adesão ou taxa de cancelamento?",
+    answer: "A adesão à ESQ Energia é 100% gratuita. Além disso, não exigimos fidelidade — você pode cancelar o serviço a qualquer momento com um aviso prévio simples, sem qualquer multa.",
+  },
+  {
+    question: "Quem pode contratar a ESQ Energia?",
+    answer: "Atendemos empresas e residências conectadas em baixa tensão (Grupo B) nas áreas de atuação das nossas distribuidoras parceiras. Basta ter uma conta de luz média acima de R$ 300.",
+  },
+];
 
 interface FAQProps {
   onOpenLeadForm?: () => void;
 }
 
 export default function FAQ({ onOpenLeadForm }: FAQProps) {
-  const inlineCTA = (
-    <button
-      onClick={onOpenLeadForm}
-      className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-bg-deep)] hover:text-[var(--color-bg-mid)] transition-colors"
-    >
-      Comece agora mesmo
-      <ArrowRight className="h-4 w-4" />
-    </button>
-  );
-
-  // Attach inline CTA to Q1 (index 0), Q3 (index 2), Q8 (index 7)
-  const items: FAQItem[] = FAQ_DATA.map((faq, i) => ({
-    question: faq.question,
-    answer: faq.answer,
-    cta: [0, 2, 7].includes(i) ? inlineCTA : undefined,
-  }));
-
   return (
     <section id="faq" className="py-24 bg-[var(--color-bg-light)]">
       <div className="container mx-auto px-4 md:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-14"
-        >
-          <SectionLabel className="justify-center mb-4">Dúvidas</SectionLabel>
-          <SectionHeading
-            as="h2"
-            gradient={false}
-            className="text-[var(--color-text-dark)]"
-          >
-            Perguntas Frequentes
-          </SectionHeading>
-        </motion.div>
-
         <div className="max-w-3xl mx-auto">
-          <AccordionFAQ items={items} />
+          <div className="text-center mb-16">
+            <SectionLabel className="justify-center mb-4 !text-[var(--color-bg-deep)]">FAQ</SectionLabel>
+            <SectionHeading as="h2" className="!text-[var(--color-bg-deep)] mb-6">
+              Dúvidas Frequentes
+            </SectionHeading>
+            <p className="text-[var(--color-text-dark)]/70">
+              Tudo o que você precisa saber para começar a economizar com energia limpa.
+            </p>
+          </div>
 
-          <div className="mt-10 text-center">
-            <button
-              onClick={onOpenLeadForm}
-              className="text-sm font-medium text-[var(--color-accent-blue)] hover:underline transition-all"
-            >
-              Mais dúvidas? Fale com nossa equipe →
-            </button>
+          <div className="bg-white rounded-[32px] p-8 md:p-12 shadow-sm border border-zinc-100">
+            <AccordionFAQ items={FAQ_ITEMS} />
+          </div>
+          
+          <div className="mt-12 text-center">
+             <p className="text-[var(--color-text-dark)]/60 text-sm mb-6">
+                Ainda tem dúvidas? Fale com nosso time agora mesmo.
+             </p>
+             <button 
+                onClick={onOpenLeadForm}
+                className="text-[var(--color-bg-deep)] font-bold hover:underline"
+             >
+                Contatar Suporte →
+             </button>
           </div>
         </div>
       </div>

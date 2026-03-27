@@ -13,8 +13,6 @@ import { useLeadModal } from "@/context/LeadModalContext";
 const NAV_LINKS = [
   { label: "Como funciona", href: "#how-it-works" },
   { label: "Simule sua economia", href: "#simulator" },
-  { label: "Clientes", href: "#testimonials" },
-  { label: "Ajuda", href: "#faq" },
 ];
 
 export default function Navbar() {

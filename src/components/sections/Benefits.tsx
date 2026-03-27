@@ -38,8 +38,8 @@ export default function Benefits({ onOpenLeadForm }: BenefitsProps) {
     <section id="benefits" className="py-24 bg-[var(--color-bg-light)]">
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <SectionLabel className="justify-center mb-4">Vantagens Reais</SectionLabel>
-          <SectionHeading as="h2" gradient={false} className="text-black mb-6">
+          <SectionLabel className="justify-center mb-4 !text-[var(--color-bg-deep)]">Vantagens Reais</SectionLabel>
+          <SectionHeading as="h2" gradient={false} className="!text-black mb-6">
             Por que escolher a ESQ Energia?
           </SectionHeading>
           <p className="text-zinc-600 text-lg">
@@ -60,8 +60,8 @@ export default function Benefits({ onOpenLeadForm }: BenefitsProps) {
               <div className="mb-6 p-4 bg-[var(--color-accent-green)]/8 rounded-2xl group-hover:bg-[var(--color-accent-green)]/15 transition-colors duration-300">
                 {benefit.icon}
               </div>
-              <h3 className="text-xl font-bold text-zinc-900 mb-4">{benefit.title}</h3>
-              <p className="text-zinc-600 mb-6 leading-relaxed">
+              <h3 className="text-xl font-bold !text-black mb-4">{benefit.title}</h3>
+              <p className="text-zinc-800 mb-6 leading-relaxed">
                 {benefit.content}
               </p>
               <Badge variant="pill" className="bg-[var(--color-accent-green)]/10 text-[var(--color-bg-deep)] border-none px-3 mt-auto">

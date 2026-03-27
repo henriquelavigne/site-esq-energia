@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
+// @ts-ignore
 import "@fontsource/outfit/600.css";
+// @ts-ignore
 import "@fontsource/outfit/700.css";
+// @ts-ignore
 import "@fontsource/dm-sans/400.css";
+// @ts-ignore
 import "@fontsource/dm-sans/500.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";

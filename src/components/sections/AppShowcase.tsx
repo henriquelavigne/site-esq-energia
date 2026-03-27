@@ -62,7 +62,7 @@ export default function AppShowcase() {
                 ))}
               </div>
               <span className="text-sm font-bold text-zinc-900">4,7</span>
-              <span className="text-sm text-zinc-500">(+100 avaliações)</span>
+              <span className="text-sm text-zinc-600">(+100 avaliações)</span>
             </div>
 
             {/* Feature Accordion */}
@@ -137,7 +137,7 @@ export default function AppShowcase() {
                      <div className="h-2 w-full bg-white/10 rounded-full overflow-hidden">
                         <div className="h-full w-3/4 bg-gradient-to-r from-[var(--color-accent-green)] to-[var(--color-accent-blue)]" />
                      </div>
-                     <p className="text-[10px] text-zinc-400 text-center">Economia de 20% atingida!</p>
+                     <p className="text-[10px] text-[var(--color-text-secondary)] text-center">Economia de 20% atingida!</p>
                   </div>
                 </div>
 

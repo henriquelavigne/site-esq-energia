@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Award, Rocket } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import Button from "@/components/ui/Button";
 
 interface FinalCTAProps {
@@ -11,89 +11,42 @@ interface FinalCTAProps {
 
 export default function FinalCTA({ onOpenLeadForm }: FinalCTAProps) {
   return (
-    <section
-      id="final-cta"
-      className="py-28 relative overflow-hidden"
-      style={{ background: "var(--gradient-hero-bg)" }}
-    >
-      {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[var(--color-accent-green)]/8 blur-[120px] rounded-full pointer-events-none" />
+    <section className="py-24 relative overflow-hidden">
+      {/* Background Decor */}
+      <div className="absolute inset-0 bg-[var(--color-bg-deep)] -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[var(--color-accent-green)]/10 blur-[120px] rounded-full -z-10" />
 
-      <div className="container mx-auto px-4 md:px-8 relative z-10">
+      <div className="container mx-auto px-4 md:px-8 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col items-center text-center"
+          className="max-w-4xl mx-auto"
         >
-          {/* Composed headline */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-10 max-w-3xl">
-            <span className="text-white">Faça parte de uma empresa </span>
-            <span
-              className="inline-block"
-              style={{
-                background:
-                  "linear-gradient(135deg, var(--color-accent-green) 0%, var(--color-accent-blue) 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              reconhecida
-            </span>
-            <span className="text-white"> pelo mercado</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-[var(--color-accent-green)] text-xs font-bold uppercase tracking-widest mb-8">
+            <Sparkles size={14} />
+            Economia Garantida
+          </div>
+
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-8 leading-tight">
+            Pronto para reduzir sua conta de luz hoje?
           </h2>
 
-          {/* Trust badges */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-col sm:flex-row gap-4 mb-12"
-          >
-            <div className="flex items-center gap-3 px-6 py-4 rounded-2xl border border-[var(--color-accent-green)]/30 bg-white/5 backdrop-blur">
-              <div className="h-10 w-10 rounded-full bg-[var(--color-accent-green)]/15 flex items-center justify-center">
-                <Award className="h-5 w-5 text-[var(--color-accent-green)]" />
-              </div>
-              <div className="text-left">
-                <p className="text-xs text-[var(--color-text-muted)] uppercase tracking-wider font-semibold">
-                  Certificação
-                </p>
-                <p className="text-sm font-bold text-white">Empresa B Certificada</p>
-              </div>
-            </div>
+          <p className="text-lg md:text-xl text-[var(--color-text-secondary)] mb-12 max-w-2xl mx-auto leading-relaxed">
+            Junte-se a milhares de empresas que já economizam com a ESQ Energia. 
+            Sem investimento, sem obras e 100% digital.
+          </p>
 
-            <div className="flex items-center gap-3 px-6 py-4 rounded-2xl border border-[var(--color-accent-blue)]/30 bg-white/5 backdrop-blur">
-              <div className="h-10 w-10 rounded-full bg-[var(--color-accent-blue)]/15 flex items-center justify-center">
-                <Rocket className="h-5 w-5 text-[var(--color-accent-blue)]" />
-              </div>
-              <div className="text-left">
-                <p className="text-xs text-[var(--color-text-muted)] uppercase tracking-wider font-semibold">
-                  Reconhecimento
-                </p>
-                <p className="text-sm font-bold text-white">100 Startups to Watch</p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Big CTA */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.35 }}
-          >
-            <Button
-              variant="primary"
-              size="lg"
-              onClick={onOpenLeadForm}
-              className="text-xl px-12 py-7 shadow-[0_0_40px_rgba(77,232,122,0.45)] hover:shadow-[0_0_56px_rgba(77,232,122,0.6)]"
-            >
-              Quero ser ESQ
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <Button variant="primary" size="lg" className="group px-10 h-14" onClick={onOpenLeadForm}>
+              Começar agora
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
-          </motion.div>
+            
+            <p className="text-sm text-[var(--color-text-secondary)]/60">
+               Leve menos de 2 minutos para se cadastrar.
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>

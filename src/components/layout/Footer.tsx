@@ -51,10 +51,7 @@ export default function Footer() {
               <ul className="space-y-2">
                 <li><Link href="/" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-green)] transition-colors">Início</Link></li>
                 <li><Link href="#how-it-works" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-green)] transition-colors">Como funciona</Link></li>
-                <li><Link href="#" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-green)] transition-colors">Seja gerador</Link></li>
                 <li><Link href="#simulator" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-green)] transition-colors">Simule sua economia</Link></li>
-                <li><Link href="#testimonials" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-green)] transition-colors">Clientes</Link></li>
-                <li><Link href="#faq" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-green)] transition-colors">Ajuda</Link></li>
               </ul>
             </div>
             <div className="space-y-4">
@@ -63,7 +60,6 @@ export default function Footer() {
                 <li><Link href="#" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-green)] transition-colors">Privacidade</Link></li>
                 <li><Link href="#" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-green)] transition-colors">Código de Ética</Link></li>
                 <li><Link href="#" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-green)] transition-colors">Termos de Uso</Link></li>
-                <li><Link href="#" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-green)] transition-colors">Carreiras</Link></li>
               </ul>
             </div>
           </div>

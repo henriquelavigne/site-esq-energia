@@ -25,8 +25,8 @@ export default function Sustainability() {
           
           {/* Left Content */}
           <div className="order-2 lg:order-1">
-            <SectionLabel className="mb-6">Sustentabilidade</SectionLabel>
-            <SectionHeading as="h2" gradient={false} className="text-black mb-8 leading-tight">
+            <SectionLabel className="mb-6 !text-[var(--color-bg-deep)]">Sustentabilidade</SectionLabel>
+            <SectionHeading as="h2" gradient={false} className="!text-black mb-8 leading-tight">
               Transforme energia solar em diferencial para o seu negócio
             </SectionHeading>
             
@@ -35,7 +35,7 @@ export default function Sustainability() {
               <span className="block mt-2 font-bold text-zinc-900 italic">
                 "88% dos consumidores preferem empresas que apoiam o meio ambiente"
               </span>
-              <span className="text-xs text-zinc-400">— Fonte: Mind Miners</span>
+              <span className="text-xs text-zinc-500">— Fonte: Mind Miners</span>
             </p>
 
             <div className="space-y-4">
@@ -49,7 +49,7 @@ export default function Sustainability() {
                   className="flex items-center gap-4 p-5 bg-[var(--color-accent-green)]/5 rounded-2xl border border-[var(--color-accent-green)]/10"
                 >
                   <span className="text-2xl">{metric.emoji}</span>
-                  <p className="text-sm font-bold text-zinc-800 leading-snug">
+                  <p className="text-sm font-bold !text-black leading-snug">
                     {metric.text}
                   </p>
                 </motion.div>
@@ -71,7 +71,7 @@ export default function Sustainability() {
               <div className="w-full h-full rounded-full border-4 border-dashed border-[var(--color-accent-green)]/30 flex items-center justify-center p-8 animate-[spin_20s_linear_infinite]">
                  <div className="absolute inset-0 rounded-full border-2 border-[var(--color-accent-green)]/10 flex items-center justify-center flex-col text-center">
                     <span className="text-[var(--color-accent-green)] font-black text-4xl uppercase tracking-tighter">100%</span>
-                    <span className="text-zinc-500 font-bold text-xs uppercase tracking-widest">Energia Limpa</span>
+                    <span className="text-zinc-600 font-bold text-xs uppercase tracking-widest">Energia Limpa</span>
                  </div>
               </div>
               
@@ -80,7 +80,7 @@ export default function Sustainability() {
                     <div className="h-12 w-12 bg-[var(--color-accent-green)] rounded-2xl flex items-center justify-center mb-3">
                        <span className="text-white text-xl font-black">ESQ</span>
                     </div>
-                    <p className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.3em]">Selo Sustentável</p>
+                    <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.3em]">Selo Sustentável</p>
                  </div>
               </div>
             </motion.div>

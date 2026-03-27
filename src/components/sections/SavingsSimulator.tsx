@@ -44,8 +44,8 @@ export default function SavingsSimulator({ onOpenLeadForm }: SavingsSimulatorPro
     <section id="simulator" className="py-24 bg-[var(--color-bg-light)]">
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <SectionLabel className="justify-center mb-4">Economia</SectionLabel>
-          <SectionHeading as="h2" gradient={false} className="text-black mb-6">
+          <SectionLabel className="justify-center mb-4 !text-[var(--color-bg-deep)]">Economia</SectionLabel>
+          <SectionHeading as="h2" gradient={false} className="!text-black mb-6">
             Economize em energia solar para reinvestir no que importa
           </SectionHeading>
           
@@ -139,7 +139,7 @@ export default function SavingsSimulator({ onOpenLeadForm }: SavingsSimulatorPro
               </p>
               
               <div className="mb-10">
-                <p className="text-zinc-400 text-sm mb-2">Sua economia total seria de:</p>
+                <p className="text-[var(--color-text-secondary)] text-sm mb-2">Sua economia total seria de:</p>
                 <AnimatePresence mode="wait">
                   <motion.h3
                     key={estimatedSavings}
@@ -150,13 +150,13 @@ export default function SavingsSimulator({ onOpenLeadForm }: SavingsSimulatorPro
                     {formatCurrency(estimatedSavings)}
                   </motion.h3>
                 </AnimatePresence>
-                <p className="text-[10px] text-zinc-500 mt-2 italic">
+                <p className="text-[10px] text-[var(--color-text-secondary)] mt-2 italic">
                   *Cálculo baseado em desconto médio de 20%
                 </p>
               </div>
 
               <div className="space-y-4 mb-10 pt-8 border-t border-white/10">
-                <p className="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-4 flex items-center gap-2">
+                <p className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider mb-4 flex items-center gap-2">
                   <HelpCircle size={14} /> Reinvista em:
                 </p>
                 <div className="space-y-3">
@@ -175,7 +175,7 @@ export default function SavingsSimulator({ onOpenLeadForm }: SavingsSimulatorPro
                 <Button variant="primary" size="lg" className="w-full justify-center py-6" onClick={onOpenLeadForm}>
                   Simular minha economia
                 </Button>
-                <p className="text-[10px] text-zinc-500 text-center mt-4">
+                <p className="text-[10px] text-[var(--color-text-secondary)]/60 text-center mt-4">
                   Taxas de distribuidora já inclusas na simulação.
                 </p>
               </div>

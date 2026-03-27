@@ -41,7 +41,7 @@ export default function StepTimeline({ steps, className }: StepTimelineProps) {
             <h3 className="text-xl font-bold text-white mb-2 transition-colors group-hover:text-[var(--color-accent-green)]">
               {step.title}
             </h3>
-            <p className="text-[var(--color-text-muted)] leading-relaxed max-w-lg">
+            <p className="text-[var(--color-text-secondary)] leading-relaxed max-w-lg">
               {step.description}
             </p>
           </div>
