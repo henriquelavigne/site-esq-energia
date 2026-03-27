@@ -18,7 +18,7 @@ export default function TestUIPage() {
   return (
     <main className="min-h-screen bg-[var(--color-bg-deep)] p-10 text-white space-y-12">
       <section className="space-y-4">
-        <SectionLabel text="UI Components Test" />
+        <SectionLabel>UI Components Test</SectionLabel>
         <SectionHeading gradient>ESQ Energia — Base UI</SectionHeading>
       </section>
 
@@ -43,7 +43,7 @@ export default function TestUIPage() {
           <SectionHeading as="h3">Badges & Labels</SectionHeading>
           <div className="flex gap-4 items-center">
             <Badge>Novo</Badge>
-            <SectionLabel text="Energia Digital" />
+            <SectionLabel>Energia Digital</SectionLabel>
           </div>
         </GlassCard>
 
