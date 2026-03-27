@@ -7,13 +7,13 @@ export const leadFormSchema = z.object({
   email: z.string().email("E-mail inválido"),
   phone: z.string().regex(phoneRegex, "Telefone inválido (ex: 11 99999-9999)"),
   customerType: z.enum(["PF", "PJ"], {
-    errorMap: () => ({ message: "Selecione o tipo de cliente" }),
+    message: "Selecione o tipo de cliente",
   }),
   billRange: z.string().min(1, "Selecione uma faixa de consumo"),
   distributor: z.string().min(1, "Selecione sua distribuidora"),
   state: z.string().length(2, "Selecione seu estado"),
   terms: z.literal(true, {
-    errorMap: () => ({ message: "Você deve aceitar os termos" }),
+    message: "Você deve aceitar os termos",
   }),
 });
 
