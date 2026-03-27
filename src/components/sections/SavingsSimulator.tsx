@@ -20,7 +20,11 @@ const REINVESTMENT_SUGGESTIONS = [
   { icon: <Leaf size={16} />, label: "ESG e Sustentabilidade" },
 ];
 
-export default function SavingsSimulator() {
+interface SavingsSimulatorProps {
+  onOpenLeadForm?: () => void;
+}
+
+export default function SavingsSimulator({ onOpenLeadForm }: SavingsSimulatorProps) {
   const [billValue, setBillValue] = useState(1500);
   const [period, setPeriod] = useState(3);
 
@@ -168,7 +172,7 @@ export default function SavingsSimulator() {
               </div>
 
               <div className="mt-auto">
-                <Button variant="primary" size="lg" className="w-full justify-center py-6">
+                <Button variant="primary" size="lg" className="w-full justify-center py-6" onClick={onOpenLeadForm}>
                   Simular minha economia
                 </Button>
                 <p className="text-[10px] text-zinc-500 text-center mt-4">

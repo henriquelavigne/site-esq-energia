@@ -7,6 +7,7 @@ import { X } from "lucide-react";
 import Link from "next/link";
 import Logo from "@/components/shared/Logo";
 import Button from "@/components/ui/Button";
+import { useLeadModal } from "@/context/LeadModalContext";
 
 interface MobileMenuDrawerProps {
   isOpen: boolean;
@@ -19,6 +20,8 @@ export default function MobileMenuDrawer({
   onOpenChange,
   navLinks,
 }: MobileMenuDrawerProps) {
+  const { openModal } = useLeadModal();
+
   return (
     <Dialog.Root open={isOpen} onOpenChange={onOpenChange}>
       <AnimatePresence>
@@ -69,7 +72,14 @@ export default function MobileMenuDrawer({
                     </Button>
                   </Dialog.Close>
                   <Dialog.Close asChild>
-                    <Button variant="primary" className="w-full">
+                    <Button
+                      variant="primary"
+                      className="w-full"
+                      onClick={() => {
+                        onOpenChange(false);
+                        openModal();
+                      }}
+                    >
                       Cadastre-se
                     </Button>
                   </Dialog.Close>

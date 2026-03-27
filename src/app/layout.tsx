@@ -1,32 +1,29 @@
 import type { Metadata } from "next";
-import { Outfit, DM_Sans } from "next/font/google";
 import "./globals.css";
+import "@fontsource/outfit/600.css";
+import "@fontsource/outfit/700.css";
+import "@fontsource/dm-sans/400.css";
+import "@fontsource/dm-sans/500.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FloatingWhatsApp from "@/components/layout/FloatingWhatsApp";
+import { LeadModalProvider } from "@/context/LeadModalContext";
+import LeadFormWizard from "@/components/forms/LeadFormWizard";
 
-const outfit = Outfit({
-  subsets: ["latin"],
-  variable: "--font-heading",
-  weight: ["600", "700"],
-  display: "swap",
-});
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  variable: "--font-body",
-  weight: ["400", "500"],
-  display: "swap",
-});
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://esqenergia.com.br";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "ESQ Energia Digital — Energia Solar por Assinatura, Sem Instalação",
   description:
     "Economize até 20% na conta de luz com a ESQ Energia. Energia solar limpa sem instalar painéis. 100% digital.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "ESQ Energia Digital — Energia Solar por Assinatura",
     description: "Economize até 20% na conta de luz. Sem instalação. 100% digital.",
-    url: "https://esqenergia.com.br",
+    url: "/",
     siteName: "ESQ Energia",
     locale: "pt_BR",
     type: "website",
@@ -38,6 +35,11 @@ export const metadata: Metadata = {
   },
   keywords: ["energia solar", "assinatura de energia", "economia na conta de luz", "energia limpa", "ESQ Energia"],
   authors: [{ name: "ESQ Energia" }],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
 };
 
 export default function RootLayout({
@@ -55,19 +57,19 @@ export default function RootLayout({
         "url": "https://esqenergia.com.br",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://esqenergia.com.br/logo.png"
+          "url": "https://esqenergia.com.br/logo.png",
         },
         "sameAs": [
           "https://www.instagram.com/esqenergia",
-          "https://www.linkedin.com/company/esqenergia"
-        ]
+          "https://www.linkedin.com/company/esqenergia",
+        ],
       },
       {
         "@type": "WebSite",
         "@id": "https://esqenergia.com.br/#website",
         "url": "https://esqenergia.com.br",
         "name": "ESQ Energia",
-        "publisher": { "@id": "https://esqenergia.com.br/#organization" }
+        "publisher": { "@id": "https://esqenergia.com.br/#organization" },
       },
       {
         "@type": "Service",
@@ -75,15 +77,16 @@ export default function RootLayout({
         "provider": { "@id": "https://esqenergia.com.br/#organization" },
         "areaServed": {
           "@type": "Country",
-          "name": "BR"
+          "name": "BR",
         },
-        "description": "Economize até 20% na conta de luz com energia solar por assinatura, sem necessidade de instalação de painéis."
-      }
-    ]
+        "description":
+          "Economize até 20% na conta de luz com energia solar por assinatura, sem necessidade de instalação de painéis.",
+      },
+    ],
   };
 
   return (
-    <html lang="pt-BR" className={`${outfit.variable} ${dmSans.variable} scroll-smooth antialiased`}>
+    <html lang="pt-BR" className="scroll-smooth antialiased">
       <head>
         <script
           type="application/ld+json"
@@ -91,12 +94,14 @@ export default function RootLayout({
         />
       </head>
       <body className="flex flex-col min-h-screen">
-        <Navbar />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
-        <FloatingWhatsApp />
+        <LeadModalProvider>
+          <Navbar />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+          <FloatingWhatsApp />
+          {/* Modal rendered at root to ensure correct portal stacking */}
+          <LeadFormWizard />
+        </LeadModalProvider>
       </body>
     </html>
   );

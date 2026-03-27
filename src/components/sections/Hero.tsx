@@ -10,7 +10,11 @@ import GlassCard from "@/components/shared/GlassCard";
 import Badge from "@/components/ui/Badge";
 import Logo from "@/components/shared/Logo";
 
-export default function Hero() {
+interface HeroProps {
+  onOpenLeadForm?: () => void;
+}
+
+export default function Hero({ onOpenLeadForm }: HeroProps) {
   return (
     <section className="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden bg-[var(--gradient-hero-bg)]">
       {/* Background Radial Glow */}
@@ -40,7 +44,7 @@ export default function Hero() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-              <Button variant="primary" size="lg" className="group">
+              <Button variant="primary" size="lg" className="group" onClick={onOpenLeadForm}>
                 Comece a economizar
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>

@@ -29,7 +29,11 @@ const BENEFITS = [
   }
 ];
 
-export default function Benefits() {
+interface BenefitsProps {
+  onOpenLeadForm?: () => void;
+}
+
+export default function Benefits({ onOpenLeadForm }: BenefitsProps) {
   return (
     <section id="benefits" className="py-24 bg-[var(--color-bg-light)]">
       <div className="container mx-auto px-4 md:px-8">
@@ -72,7 +76,7 @@ export default function Benefits() {
             <MessageCircle className="mr-2 h-5 w-5" />
             Fale com um especialista
           </Button>
-          <Button variant="primary" size="lg" className="w-full sm:w-auto">
+          <Button variant="primary" size="lg" className="w-full sm:w-auto" onClick={onOpenLeadForm}>
             Quero fazer parte
           </Button>
         </div>
