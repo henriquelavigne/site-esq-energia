@@ -7,7 +7,11 @@ import LogoBar from "@/components/shared/LogoBar";
 import Button from "@/components/ui/Button";
 import { TESTIMONIALS } from "@/lib/constants";
 
-export default function Testimonials() {
+interface TestimonialsProps {
+  onOpenLeadForm?: () => void;
+}
+
+export default function Testimonials({ onOpenLeadForm }: TestimonialsProps) {
   return (
     <section id="testimonials" className="py-24 bg-[var(--color-bg-deep)]">
       <div className="container mx-auto">
@@ -34,7 +38,7 @@ export default function Testimonials() {
           <Button variant="outline-blue" size="lg" className="w-full sm:w-auto">
             Fale com um especialista
           </Button>
-          <Button variant="primary" size="lg" className="w-full sm:w-auto">
+          <Button variant="primary" size="lg" className="w-full sm:w-auto" onClick={onOpenLeadForm}>
             Quero fazer parte
           </Button>
         </div>

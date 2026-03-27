@@ -20,7 +20,11 @@ const REINVESTMENT_SUGGESTIONS = [
   { icon: <Leaf size={16} />, label: "ESG e Sustentabilidade" },
 ];
 
-export default function SavingsSimulator() {
+interface SavingsSimulatorProps {
+  onOpenLeadForm?: () => void;
+}
+
+export default function SavingsSimulator({ onOpenLeadForm }: SavingsSimulatorProps) {
   const [billValue, setBillValue] = useState(1500);
   const [period, setPeriod] = useState(3);
 
@@ -53,7 +57,7 @@ export default function SavingsSimulator() {
           >
             <span className="text-xl">💰</span>
             <p className="text-sm font-bold">
-              <span className="text-[var(--color-accent-teal)]">R$ 80.000 economizados:</span> marco de um cliente desde 2021
+              <span className="text-[var(--color-accent-green)]">R$ 80.000 economizados:</span> marco de um cliente desde 2021
             </p>
           </motion.div>
         </div>
@@ -71,7 +75,7 @@ export default function SavingsSimulator() {
                     </label>
                     <p className="text-xs text-zinc-500">Quanto você paga hoje sem a ESQ?</p>
                   </div>
-                  <span className="text-3xl font-bold text-[var(--color-accent-teal)]">
+                  <span className="text-3xl font-bold text-[var(--color-accent-green)]">
                     {formatCurrency(billValue)}
                   </span>
                 </div>
@@ -168,7 +172,7 @@ export default function SavingsSimulator() {
               </div>
 
               <div className="mt-auto">
-                <Button variant="primary" size="lg" className="w-full justify-center py-6">
+                <Button variant="primary" size="lg" className="w-full justify-center py-6" onClick={onOpenLeadForm}>
                   Simular minha economia
                 </Button>
                 <p className="text-[10px] text-zinc-500 text-center mt-4">

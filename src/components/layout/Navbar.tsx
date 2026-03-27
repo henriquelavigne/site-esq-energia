@@ -8,6 +8,7 @@ import { useScrollOpacity } from "@/hooks/useScrollOpacity";
 import Logo from "@/components/shared/Logo";
 import Button from "@/components/ui/Button";
 import MobileMenuDrawer from "@/components/layout/MobileMenuDrawer";
+import { useLeadModal } from "@/context/LeadModalContext";
 
 const NAV_LINKS = [
   { label: "Como funciona", href: "#how-it-works" },
@@ -19,6 +20,7 @@ const NAV_LINKS = [
 export default function Navbar() {
   const { isScrolled } = useScrollOpacity();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { openModal } = useLeadModal();
 
   return (
     <>
@@ -48,13 +50,10 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Desktop Actions */}
-          <div className="hidden md:flex items-center gap-4">
-            <Button variant="outline-blue" size="sm">
-              Já sou cliente
-            </Button>
-            <Button variant="primary" size="sm">
-              Cadastre-se
+          {/* Desktop CTA */}
+          <div className="hidden md:flex items-center">
+            <Button variant="primary" size="sm" onClick={openModal}>
+              Comece a economizar
             </Button>
           </div>
 

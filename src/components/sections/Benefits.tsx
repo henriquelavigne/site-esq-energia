@@ -29,7 +29,11 @@ const BENEFITS = [
   }
 ];
 
-export default function Benefits() {
+interface BenefitsProps {
+  onOpenLeadForm?: () => void;
+}
+
+export default function Benefits({ onOpenLeadForm }: BenefitsProps) {
   return (
     <section id="benefits" className="py-24 bg-[var(--color-bg-light)]">
       <div className="container mx-auto px-4 md:px-8">
@@ -38,7 +42,7 @@ export default function Benefits() {
           <SectionHeading as="h2" gradient={false} className="text-black mb-6">
             Por que escolher a ESQ Energia?
           </SectionHeading>
-          <p className="text-[var(--color-text-muted)] text-lg">
+          <p className="text-zinc-600 text-lg">
             Economia inteligente, energia limpa e total comodidade para o seu bolso.
           </p>
         </div>
@@ -53,14 +57,14 @@ export default function Benefits() {
               transition={{ delay: index * 0.1 }}
               className="bg-white p-8 rounded-[20px] shadow-sm hover:shadow-xl transition-all border border-zinc-100 flex flex-col items-start group"
             >
-              <div className="mb-6 p-4 bg-zinc-50 rounded-2xl group-hover:bg-white transition-colors duration-300">
+              <div className="mb-6 p-4 bg-[var(--color-accent-green)]/8 rounded-2xl group-hover:bg-[var(--color-accent-green)]/15 transition-colors duration-300">
                 {benefit.icon}
               </div>
               <h3 className="text-xl font-bold text-zinc-900 mb-4">{benefit.title}</h3>
               <p className="text-zinc-600 mb-6 leading-relaxed">
                 {benefit.content}
               </p>
-              <Badge variant="pill" className="bg-zinc-100 text-zinc-600 border-none px-3">
+              <Badge variant="pill" className="bg-[var(--color-accent-green)]/10 text-[var(--color-bg-deep)] border-none px-3 mt-auto">
                 {benefit.badge}
               </Badge>
             </motion.div>
@@ -72,7 +76,7 @@ export default function Benefits() {
             <MessageCircle className="mr-2 h-5 w-5" />
             Fale com um especialista
           </Button>
-          <Button variant="primary" size="lg" className="w-full sm:w-auto">
+          <Button variant="primary" size="lg" className="w-full sm:w-auto" onClick={onOpenLeadForm}>
             Quero fazer parte
           </Button>
         </div>

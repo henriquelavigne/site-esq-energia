@@ -22,8 +22,8 @@
   --color-hover: rgba(77, 232, 122, 0.12);
   --color-focus-ring: #4DE87A;
 
-  --font-heading: var(--font-heading);
-  --font-body: var(--font-body);
+  --font-heading: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "DM Sans", ui-sans-serif, system-ui, sans-serif;
 
   --animate-wa-pulse: wa-pulse 3s infinite;
   --animate-infinite-scroll: scroll 30s linear infinite;
@@ -38,6 +38,19 @@
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
+
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+
+  --animate-accordion-down: accordion-down 0.25s ease-out;
+  --animate-accordion-up: accordion-up 0.25s ease-out;
 }
 
 :root {
@@ -71,6 +84,10 @@
   --gradient-hero-bg:    linear-gradient(180deg, #0D4F4F 0%, #1A6B6B 100%);
   --gradient-esq-text:   linear-gradient(135deg, #FFFFFF 0%, #B8CFF5 50%, #8BAEE8 100%);
   --gradient-cta-glow:   0 0 24px rgba(77,232,122,0.35);
+
+  /* ── Tipografia ── */
+  --font-heading: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-body:    "DM Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
@@ -124,4 +141,16 @@ h1, h2, h3, h4, h5, h6 {
 :focus-visible {
   outline: 2px solid var(--color-focus-ring);
   outline-offset: 2px;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
